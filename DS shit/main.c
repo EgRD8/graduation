@@ -32,6 +32,7 @@ int main(void)
 	_delay_ms(1000);//wait for the new reading to come in
 	while(1) 
 	{		
+		//DS18B20------------------------------------------------------------------------------------------
 		newtemp = ds18b20_gettemp();
 		int diffrant=difftemp(oldtemp,newtemp);
 		switch(diffrant)
@@ -53,7 +54,7 @@ int main(void)
 		}	
 		oldtemp=newtemp;
 		_delay_ms(200);
-		//IR
+		//IR----------------------------------------------------------------------------------------------
 		unsigned char IR_READs = READ_BIT(PINB,0);
 		if (IR_READs==1)
 		{
@@ -77,7 +78,12 @@ int main(void)
 		{
 			CLR_BIT(PORTD,3);
 		}
-	}	
-	
+		
+		//MQ5------------------------------------------------------------------------------------------------
+		
+		//MQ135----------------------------------------------------------------------------------------------
+		
+	}//while-end
+		
 	return 0;
 }
